@@ -23,17 +23,19 @@ public class BasePage {
 
     public BasePage() throws IOException {
         prop = new Properties();
-        FileInputStream data = new FileInputStream("C:Users\\ntqi\\OneDrive - Netcompany\\Desktop\\e2esmoke\\src\\test\\java\\e2eproject\\resources\\config.properties");
+        FileInputStream data = new FileInputStream("C:\\Users\\n" + //
+                                        "tqi\\OneDrive - Netcompany\\Desktop\\e2esmoke\\src\\main\\java\\e2eproject\\resources\\config.properties");
         prop.load(data);
     }
 
     public WebDriver getDriver() throws IOException {
         if (prop.getProperty("browser").equals("chrome")) {
-            System.setProperty("webdriver.chrome.driver", "C:\\Users\\ntqi\\OneDrive - Netcompany\\Desktop\\e2esmoke\\src\\test\\java\\e2eproject\\drivers\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", 
+            "C:\\Users\\ntqi\\OneDrive - Netcompany\\Desktop\\e2esmoke\\src\\main\\java\\e2eproject\\drivers\\chromedriver.exe");
 
             driver = new ChromeDriver();
         } else {
-            System.setProperty("webdriver.chrome.driver", "C:\\Users\\ntqi\\OneDrive - Netcompany\\Desktop\\e2esmoke\\src\\test\\java\\e2eproject\\drivers\\geckodriver.exe");
+            System.setProperty("webdriver.chrome.driver", "C:\\Users\\ntqi\\OneDrive - Netcompany\\Desktop\\e2esmoke\\src\\main\\java\\e2eproject\\drivers\\geckodriver.exe");
             driver = new FirefoxDriver();
         }
 
@@ -43,13 +45,13 @@ public class BasePage {
         takeSnapShot(driver);
 
         return driver;
-
     }
 
     public String getUrl() throws IOException {
         Properties prop = new Properties();
         FileInputStream data = new FileInputStream(
-                "C:\\Users\\ntqi\\OneDrive - Netcompany\\Desktop\\e2esmoke\\src\\test\\java\\e2eproject\\resources\\config.properties");
+                "C:\\Users\\n" + //
+                                        "tqi\\OneDrive - Netcompany\\Desktop\\e2esmoke\\src\\main\\java\\e2eproject\\resources\\config.properties");
         prop.load(data);
         url = prop.getProperty("url");
         return url;
@@ -61,7 +63,8 @@ public class BasePage {
         File srcFile = ((TakesScreenshot) webdriver).getScreenshotAs(OutputType.FILE);
 
         // store the snapshot file
-        File destFile = new File("C:\\Users\\ntqi\\OneDrive - Netcompany\\Desktop\\e2esmoke\\target\\screenshots"
+        File destFile = new File("C:\\Users\\n" + //
+                        "tqi\\OneDrive - Netcompany\\Desktop\\e2esmoke\\target\\screenshots"
                 + timestamp() + ".png");
 
         // copy the snapshot file from srcFile to destFile

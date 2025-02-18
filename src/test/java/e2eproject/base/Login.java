@@ -26,5 +26,4 @@ public class Login extends BasePage {
         driver.findElement(By.cssSelector("button#submit-login")).click();
         Thread.sleep(2000);
     }
-
 }
