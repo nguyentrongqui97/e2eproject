@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Feb 17 17:02:44 ICT 2025</td>
+<td>Started on:</td><td>Wed Feb 19 16:25:38 ICT 2025</td>
 </tr>
-<tr><td>Total time:</td><td>0 seconds (85 ms)</td>
+<tr><td>Total time:</td><td>7 seconds (7030 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,31 +75,19 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='e2eproject.base.Login.signIn()'><b>signIn</b><br>Test class: e2eproject.base.Login</td>
-<td><div><pre>java.lang.IllegalStateException: The driver executable does not exist: C:\Users\ntqi\OneDrive - Netcompany\Desktop\e2esmokesrc\test\java\e2eproject\drivers\chromedriver.exe
-	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
-	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
-	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
-	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
-	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
-	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
-	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
-	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:123)
-	at e2eproject.base.BasePage.getDriver(BasePage.java:36)
-	at e2eproject.base.Login.signIn(Login.java:17)
+<td title='e2eproject.smoke.demo.navigateToProduct()'><b>navigateToProduct</b><br>Test class: e2eproject.smoke.demo</td>
+<td><div><pre>java.lang.AssertionError: expected [19.13] but found [$19.12]
+	at e2eproject.smoke.demo.navigateToProduct(demo.java:38)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace572868060", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace572868060'><pre>java.lang.IllegalStateException: The driver executable does not exist: C:\Users\ntqi\OneDrive - Netcompany\Desktop\e2esmokesrc\test\java\e2eproject\drivers\chromedriver.exe
-	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
-	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
-	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
-	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
-	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
-	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
-	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
-	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:123)
-	at e2eproject.base.BasePage.getDriver(BasePage.java:36)
-	at e2eproject.base.Login.signIn(Login.java:17)
+... Removed 38 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1852661033", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1852661033'><pre>java.lang.AssertionError: expected [19.13] but found [$19.12]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at e2eproject.smoke.demo.navigateToProduct(demo.java:38)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -134,8 +122,8 @@ function toggleAllBoxes() {
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
 </pre></div></td>
-<td>0</td>
-<td>e2eproject.base.Login@517cd4b</td></tr>
+<td>1</td>
+<td>e2eproject.smoke.demo@59717824</td></tr>
 </table><p>
 </body>
 </html>

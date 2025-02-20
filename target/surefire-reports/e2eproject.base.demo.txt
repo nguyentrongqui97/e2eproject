@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: e2eproject.base.demo
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.752 s - in e2eproject.base.demo
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 8.879 s <<< FAILURE! - in e2eproject.base.demo
+navigateToProduct(e2eproject.base.demo)  Time elapsed: 1.523 s  <<< FAILURE!
+java.lang.AssertionError: expected [19.13] but found [$19.12]
+	at e2eproject.base.demo.navigateToProduct(demo.java:35)
+

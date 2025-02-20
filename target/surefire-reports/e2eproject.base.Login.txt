@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: e2eproject.base.Login
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.699 s <<< FAILURE! - in e2eproject.base.Login
-signIn(e2eproject.base.Login)  Time elapsed: 0.055 s  <<< FAILURE!
-java.lang.IllegalStateException: The driver executable does not exist: C:\Users\ntqi\OneDrive - Netcompany\Desktop\e2esmokesrc\test\java\e2eproject\drivers\chromedriver.exe
-	at e2eproject.base.Login.signIn(Login.java:17)
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.228 s - in e2eproject.base.Login

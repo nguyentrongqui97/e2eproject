@@ -3,11 +3,13 @@
 <suite thread-count="1" name="Failed suite [Surefire suite]" verbose="0">
   <test thread-count="1" name="Surefire test(failed)" verbose="0">
     <classes>
-      <class name="e2eproject.base.Login">
+      <class name="e2eproject.smoke.demo">
         <methods>
-          <include name="signIn"/>
+          <include name="tearDown"/>
+          <include name="setUP"/>
+          <include name="navigateToProduct"/>
         </methods>
-      </class> <!-- e2eproject.base.Login -->
+      </class> <!-- e2eproject.smoke.demo -->
     </classes>
   </test> <!-- Surefire test(failed) -->
 </suite> <!-- Failed suite [Surefire suite] -->
