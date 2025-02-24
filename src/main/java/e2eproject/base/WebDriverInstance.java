@@ -29,17 +29,22 @@ public class WebDriverInstance {
         WebDriver driver = null;
 
         Properties prop = new Properties();
-        FileInputStream data = new FileInputStream("src\\main\\java\\e2eproject\\resources\\config.properties");
+        FileInputStream data = new FileInputStream(
+                "src\\main\\java\\e2eproject\\resources\\config.properties");
         prop.load(data);
 
         if (prop.getProperty("browser").equals("firefox")) {
 
-            System.setProperty("webdriver.firefox.driver", "src\\main\\java\\e2eproject\\drivers\\geckodriver.exe");
+            System.setProperty(
+                    "webdriver.firefox.driver",
+                    "src\\main\\java\\e2eproject\\drivers\\geckodriver.exe");
             driver = new FirefoxDriver();
 
         } else {
 
-            System.setProperty("webdriver.chrome.driver", "src\\main\\java\\e2eproject\\drivers\\chromedriver.exe");
+            System.setProperty(
+                    "webdriver.chrome.driver",
+                    "src\\main\\java\\e2eproject\\drivers\\chromedriver.exe");
             driver = new ChromeDriver();
 
         }

@@ -1,1 +1,19 @@
-target/screenshots2025-07-18 11-07-10.png
+bin/
+out/
+.idea/
+ExportData/
+ExtentReports/
+logs/
+target/
+reports/
+*.png
+*.jpg
+*.mp4
+*.avi
+*.zip
+*.iml
+target/classes/e2eproject/base/WebDriverInstance.class
+target/test-classes/e2eproject/TestNGRunner.class
+target/test-classes/e2eproject/smoke/demo.class
+target/test-classes/e2eproject/smoke/Login.class
+target/test-classes/e2eproject/baseTest/Login.class
