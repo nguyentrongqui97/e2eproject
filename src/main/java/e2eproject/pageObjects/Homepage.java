@@ -33,6 +33,7 @@ public class Homepage extends BasePage {
     By testStoreLink = By.linkText("TEST STORE");
     By aboutMeLink = By.linkText("ABOUT ME");
     By cookie = By.cssSelector(".close-cookie-warning > span");
+    By sideBar = By.cssSelector("#sidebar");
 
     public Homepage() throws IOException {
         super();
@@ -41,6 +42,11 @@ public class Homepage extends BasePage {
     public WebElement getToggle() throws IOException {
         this.driver = getDriver();
         return driver.findElement(toggle);
+    }
+
+    public WebElement getSideBar() throws IOException {
+        this.driver = getDriver();
+        return driver.findElement(sideBar);
     }
 
     public WebElement getHomepageLink() throws IOException {
