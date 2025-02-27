@@ -1,19 +1,30 @@
-bin/
-out/
-.idea/
-ExportData/
-ExtentReports/
-logs/
+# Ignore compiled class files
+*.class
+
+# Ignore Maven build output
 target/
-reports/
-*.png
-*.jpg
-*.mp4
-*.avi
-*.zip
+
+# Ignore IDE-specific files
+.idea/
 *.iml
-target/classes/e2eproject/base/WebDriverInstance.class
-target/test-classes/e2eproject/TestNGRunner.class
-target/test-classes/e2eproject/smoke/demo.class
-target/test-classes/e2eproject/smoke/Login.class
-target/test-classes/e2eproject/baseTest/Login.class
+.project
+.settings/
+
+# Ignore VSCode workspace settings
+.vscode/
+
+# Ignore TestNG result files
+testng-results.xml
+test-output/
+
+# Ignore Maven wrapper files (if using Maven wrapper)
+.mvn/
+.mvnw
+.mvnw.cmd
+
+# Ignore log files
+*.log
+
+# Ignore system-specific files
+.DS_Store      # macOS
+Thumbs.db      # Windows
