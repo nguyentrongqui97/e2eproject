@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="tests" thread-count="2">
+
+    <listeners>
+        <listener class-name="e2eproject.resources.Listeners"></listener>
+    </listeners>
     <test thread-count="5" name="Test">
         <classes>
-            <class name="e2eproject.smoke.demo" />
-        </classes>
-    </test>
-
-    <test thread-count="5" name="Test2">
-        <classes>
-            <class name="e2eproject.smoke.Login" />
+            <class name="e2eproject.smoke.CompleteOrder" />
         </classes>
     </test>
 </suite>

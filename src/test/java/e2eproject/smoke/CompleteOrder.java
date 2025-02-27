@@ -4,17 +4,21 @@ import java.io.IOException;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import e2eproject.base.Hooks;
 import e2eproject.pageObjects.Homepage;
 import e2eproject.pageObjects.OrderFormDelivery;
+import e2eproject.pageObjects.OrderFormPayment;
 import e2eproject.pageObjects.OrderFormPersInfo;
+import e2eproject.pageObjects.OrderFormShippingMethod;
 import e2eproject.pageObjects.ShopContentPanel;
 import e2eproject.pageObjects.ShopHomepage;
 import e2eproject.pageObjects.ShopProductPage;
 import e2eproject.pageObjects.ShoppingCart;
 
+@Listeners
 public class CompleteOrder extends Hooks {
 
     public CompleteOrder() throws IOException {
@@ -27,10 +31,11 @@ public class CompleteOrder extends Hooks {
         if(!home.getSideBar().isDisplayed()) {
             home.getToggle().click();
         }
-        ((JavascriptExecutor) getDriver())
-                .executeScript("window.scrollTo(" + home.getTestStoreLink().getLocation().x
-                        + "+2," + home.getTestStoreLink().getLocation().y + "+2)");
+
+        JavascriptExecutor jse = (JavascriptExecutor) getDriver();
+        jse.executeScript("arguments[0].scrollIntoView(true);", home.getTestStoreLink());
         Thread.sleep(2000);
+        
         home.getTestStoreLink().click();
 
         ShopHomepage shop = new ShopHomepage();
@@ -58,7 +63,7 @@ public class CompleteOrder extends Hooks {
         info.getFirstNameField().sendKeys("Qui test First Nme");
         info.getLastnameField().sendKeys("Qui test Last Nme");
         info.getEmailField().sendKeys("quitest1@gmail.com");
-        info.getPasswordField().sendKeys("Testing123!");
+        info.getTermsConditionsCheckbox().click();
         info.getContinueBtn().click();
 
         OrderFormDelivery delivery = new OrderFormDelivery();
@@ -66,9 +71,17 @@ public class CompleteOrder extends Hooks {
         delivery.getCityField().sendKeys("Nha Trang");
         Select state = new Select(delivery.getStateDropdown());
         state.selectByVisibleText("Arizona");
-        delivery.getPostcodeField().sendKeys("6666555");
+        delivery.getPostcodeField().sendKeys("44444");
         delivery.getContinueBtn().click();
 
+        OrderFormShippingMethod shipping = new OrderFormShippingMethod();
+        shipping.getDeliveryMsgTextbox().sendKeys("working hour delivery");
+        shipping.getContinueBtn().click();;
+
+        OrderFormPayment payment = new OrderFormPayment();
+        payment.getPayByWireRadioBtn().click();
+        payment.getTermsConditionsCheckbox().click();
+        payment.getOrderBtn().click();
 
     }
 
