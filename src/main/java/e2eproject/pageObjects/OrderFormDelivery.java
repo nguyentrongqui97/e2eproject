@@ -6,9 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import e2eproject.base.BasePage;
+import e2eproject.base.CommonFunctions;
 
-public class OrderFormDelivery extends BasePage {
+public class OrderFormDelivery extends CommonFunctions {
     public WebDriver driver;
 
     By firstNameField = By.cssSelector("input[name='firstname']");

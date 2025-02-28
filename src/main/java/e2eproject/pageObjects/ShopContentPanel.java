@@ -6,9 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import e2eproject.base.BasePage;
+import e2eproject.base.CommonFunctions;
 
-public class ShopContentPanel extends BasePage {
+public class ShopContentPanel extends CommonFunctions {
 
     public WebDriver driver;
 

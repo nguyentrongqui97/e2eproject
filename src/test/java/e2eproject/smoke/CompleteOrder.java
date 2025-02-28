@@ -2,11 +2,11 @@ package e2eproject.smoke;
 
 import java.io.IOException;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import e2eproject.base.CommonFunctions;
 import e2eproject.base.Hooks;
 import e2eproject.pageObjects.Homepage;
 import e2eproject.pageObjects.OrderFormDelivery;
@@ -27,16 +27,22 @@ public class CompleteOrder extends Hooks {
 
     @Test
     public void completeOrderWithPromotionCode() throws IOException, Exception {
-        Homepage home = new Homepage();
+
+        CommonFunctions function = new CommonFunctions();
+
+        Homepage home = new Homepage();   
         if(!home.getSideBar().isDisplayed()) {
             home.getToggle().click();
         }
 
-        JavascriptExecutor jse = (JavascriptExecutor) getDriver();
-        jse.executeScript("arguments[0].scrollIntoView(true);", home.getTestStoreLink());
-        Thread.sleep(2000);
+        // JavascriptExecutor jse = (JavascriptExecutor) getDriver();
+        // jse.executeScript("arguments[0].scrollIntoView(true);", home.getTestStoreLink());
+        // Thread.sleep(2000);
+        function.scrollToElements(home.getTestStoreLink());
         
         home.getTestStoreLink().click();
+        function.clickElement(home.getTestStoreLink());
+
 
         ShopHomepage shop = new ShopHomepage();
         shop.getProdTwo().click();
@@ -58,7 +64,7 @@ public class CompleteOrder extends Hooks {
         cart.getPromoAddBtn().click();
         cart.getProceedCheckoutBtn().click();
 
-        OrderFormPersInfo info = new OrderFormPersInfo();
+        OrderFormPersInfo info = new OrderFormPersInfo(); 
         info.getGenderMr().click();
         info.getFirstNameField().sendKeys("Qui test First Nme");
         info.getLastnameField().sendKeys("Qui test Last Nme");

@@ -5,9 +5,9 @@ import java.io.IOException;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import e2eproject.base.BasePage;
+import e2eproject.base.CommonFunctions;
 
-public class Listeners extends BasePage implements ITestListener {
+public class Listeners extends CommonFunctions implements ITestListener {
 
     public Listeners() throws IOException {
         super();
