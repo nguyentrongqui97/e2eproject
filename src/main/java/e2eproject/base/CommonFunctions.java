@@ -12,12 +12,17 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.google.common.base.Function;
 
 public class CommonFunctions {
 
-    private final static Logger LOGGER = Logger.getLogger(CommonFunctions.class.getName());
+    private final static Logger LOGGER = Logger.getLogger("");
     protected String url;
-    protected  WebDriver driver;
+    protected WebDriver driver;
 
     public void open() {
         driver.get(url);
@@ -27,13 +32,9 @@ public class CommonFunctions {
         return WebDriverInstance.getDriver();
     }
 
-
     public void takeSnapShot(String name) throws IOException {
-
         File srcFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-
         File destFile = new File("target\\screenshots\\" + timestamp() + ".png");
-
         FileUtils.copyFile(srcFile, destFile);
     }
 
@@ -49,11 +50,25 @@ public class CommonFunctions {
 
     }
 
-    public void waitForElementVisibility() {
+    public void waitForElementVisibilityWithTimeOut(WebElement element, long timeOutInSeconds) {
+        LOGGER.info("Waiting for element " + element + " to be visible within " + timeOutInSeconds + "seconds");
+        Function<? super WebDriver, ?> condition;
+        condition = ExpectedConditions.visibilityOf(element);
+        WebDriverWait wait = new WebDriverWait(getDriver(), timeOutInSeconds);
+        wait.until(condition);
 
     }
 
+    public void waitForElementToBeClickableWithTimeOut(WebElement element, long timeOutInSeconds) {
+        LOGGER.info("Waiting for element " + element + " to be clickable within " + timeOutInSeconds + "seconds");
+        Function<? super WebDriver, ?> condition;
+        condition = ExpectedConditions.elementToBeClickable(element);
+        WebDriverWait wait = new WebDriverWait(getDriver(), timeOutInSeconds);
+        wait.until(condition);
+    }
+
     public void clickElement(WebElement element) throws IOException {
+        LOGGER.info("Click element " + element);
         element.click();
     }
 
@@ -61,19 +76,25 @@ public class CommonFunctions {
 
     }
 
-    public void typeValuesIntoTextBox() {
-
+    public void typeValuesIntoTextBox(WebElement element, String value) {
+        LOGGER.info("Element " + element + " is sent values: " + value);
+        element.sendKeys(value);
     }
 
-    public void scrollToElements(WebElement element) throws InterruptedException, IOException  {
+    public void scrollToElements(WebElement element) throws InterruptedException, IOException {
+        LOGGER.info("Scroll into element: " + element);
         JavascriptExecutor jse = (JavascriptExecutor) getDriver();
         jse.executeScript("arguments[0].scrollIntoView(true);", element);
         Thread.sleep(2000);
     }
 
-    public void selectVisibleTextInDropdown(String value) {
-
+    public void selectVisibleTextInDropdown(WebElement element, String value) {
+        Select dropdown = new Select((WebElement) element);
+        dropdown.selectByVisibleText(value);
     }
 
-
 }
+
+
+
+

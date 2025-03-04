@@ -1,7 +1,6 @@
 package e2eproject.base;
 
 import java.io.IOException;
-import static java.lang.System.getProperty;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -26,9 +25,7 @@ public class WebDriverInstance {
 
     public static WebDriver createDriver() throws IOException {
         WebDriver driver = null;
-
         String browser = PropertyConfig.getProperty("browser");
-
         switch (browser) {
             case "firefox" -> {
                 System.setProperty(
