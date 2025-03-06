@@ -34,20 +34,12 @@ public class CommonFunctions {
 
     public void takeSnapShot(String name) throws IOException {
         File srcFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-        File destFile = new File("target\\screenshots\\" + timestamp() + ".png");
+        File destFile = new File(PropertyConfig.getProperty("screenshotPath") + name + timestamp() + ".png");
         FileUtils.copyFile(srcFile, destFile);
     }
 
     public static String timestamp() {
-        return new SimpleDateFormat(" yyyy-mm-dd HH-mm-ss").format(new Date());
-    }
-
-    public void acceptCookies() {
-
-    }
-
-    public void declineCookies() {
-
+        return new SimpleDateFormat(" HH-mm-ss").format(new Date());
     }
 
     public void waitForElementVisibilityWithTimeOut(WebElement element, long timeOutInSeconds) {
@@ -93,8 +85,8 @@ public class CommonFunctions {
         dropdown.selectByVisibleText(value);
     }
 
+    public boolean isElementDisplayed(WebElement element) {
+        return element.isDisplayed();
+    } 
+
 }
-
-
-
-

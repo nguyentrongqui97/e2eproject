@@ -29,11 +29,13 @@ public class CompleteOrderWithPromotionCode extends Hooks {
 
         CommonFunctions function = new CommonFunctions();
 
-        Homepage home = new Homepage();   
-        if(!home.getSideBar().isDisplayed()) {
+        Homepage home = new Homepage();
+        if(function.isElementDisplayed(home.getCookie())) {
+            function.clickElement(home.getCookie());
+        } 
+        if(home.getSideBar().getAttribute("class").contains("inactive")) {
             home.getToggle().click();
         }
-
         function.scrollToElements(home.getTestStoreLink());
         function.clickElement(home.getTestStoreLink());
 
@@ -55,7 +57,7 @@ public class CompleteOrderWithPromotionCode extends Hooks {
         function.clickElement(cart.getPromoAddBtn());
         function.clickElement(cart.getProceedCheckoutBtn());
 
-        OrderFormPersInfo info = new OrderFormPersInfo(); 
+        OrderFormPersInfo info = new OrderFormPersInfo();
         function.clickElement(info.getGenderMr());
         function.typeValuesIntoTextBox(info.getFirstNameField(), "Qui test First Nme");
         function.typeValuesIntoTextBox(info.getLastnameField(), "Qui test Last Nme");
@@ -66,7 +68,7 @@ public class CompleteOrderWithPromotionCode extends Hooks {
         OrderFormDelivery delivery = new OrderFormDelivery();
         function.typeValuesIntoTextBox(delivery.getAddressField(), "Opal Tower");
         function.typeValuesIntoTextBox(delivery.getCityField(), "Nha Trang");
-        function.selectVisibleTextInDropdown(delivery.getStateDropdown(),"Arizona");
+        function.selectVisibleTextInDropdown(delivery.getStateDropdown(), "Arizona");
         function.typeValuesIntoTextBox(delivery.getPostcodeField(), "44444");
         function.clickElement(delivery.getContinueBtn());
 

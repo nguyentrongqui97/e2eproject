@@ -33,10 +33,12 @@ public class CompleteOrderWithoutPromotionCode extends Hooks {
         CommonFunctions function = new CommonFunctions();
 
         Homepage home = new Homepage();
-        if (!home.getSideBar().isDisplayed()) {
+        if(function.isElementDisplayed(home.getCookie())) {
+            function.clickElement(home.getCookie());
+        } 
+        if(home.getSideBar().getAttribute("class").contains("inactive")) {
             home.getToggle().click();
         }
-
         function.scrollToElements(home.getTestStoreLink());
         function.clickElement(home.getTestStoreLink());
 
@@ -56,7 +58,7 @@ public class CompleteOrderWithoutPromotionCode extends Hooks {
         ShoppingCart cart = new ShoppingCart();
         function.clickElement(cart.getProceedCheckoutBtn());
 
-        // Read data 
+        // Read data
         JSONObject testData = JsonReader.readJson("src\\main\\java\\e2eproject\\testData\\TestData.json");
         JSONObject user = (JSONObject) testData.get("user");
         String firstName = (String) user.get("firstName");

@@ -39,6 +39,11 @@ public class Homepage extends CommonFunctions {
         super();
     }
 
+    public WebElement getCookies() {
+        this.driver = getDriver();
+        return driver.findElement(cookie);
+    }
+
     public WebElement getToggle() throws IOException {
         this.driver = getDriver();
         return driver.findElement(toggle);

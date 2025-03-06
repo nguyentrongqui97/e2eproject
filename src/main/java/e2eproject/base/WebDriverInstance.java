@@ -30,7 +30,7 @@ public class WebDriverInstance {
             case "firefox" -> {
                 System.setProperty(
                         "webdriver.firefox.driver",
-                        "src\\main\\java\\e2eproject\\drivers\\geckodriver.exe");
+                        PropertyConfig.getProperty("fireFoxDriverPath"));
                 driver = new FirefoxDriver();
                 break;
             }
@@ -38,11 +38,12 @@ public class WebDriverInstance {
                 break;
             }
             default -> {
-                System.setProperty("webdriver.chrome.driver", "src\\main\\java\\e2eproject\\drivers\\chromedriver.exe");
+                System.setProperty(
+                        "webdriver.chrome.driver",
+                        PropertyConfig.getProperty("chromeDriverPath"));
                 driver = new ChromeDriver();
                 break;
             }
-
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

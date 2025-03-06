@@ -28,12 +28,14 @@ public class TestInputDataFromJSON extends Hooks {
     public void TestInputData() throws IOException, Exception {
 
         CommonFunctions function = new CommonFunctions();
-
+        
         Homepage home = new Homepage();
-        if (!home.getSideBar().isDisplayed()) {
+        if(function.isElementDisplayed(home.getCookie())) {
+            function.clickElement(home.getCookie());
+        } 
+        if(home.getSideBar().getAttribute("class").contains("inactive")) {
             home.getToggle().click();
         }
-
         function.scrollToElements(home.getTestStoreLink());
         function.clickElement(home.getTestStoreLink());
 
@@ -42,7 +44,6 @@ public class TestInputDataFromJSON extends Hooks {
         function.clickElement(shop.getProdTwo());
 
         ShopProductPage product = new ShopProductPage();
-
         function.selectVisibleTextInDropdown(product.getSizeOption(), "XL");
         function.clickElement(product.getQuantIncrease());
         function.clickElement(product.getAddToCartBtn());
